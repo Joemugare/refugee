@@ -5,8 +5,8 @@ import seaborn as sns
 import numpy as np
 
 # Load the dataset
-df = pd.read_csv('C:\\Users\\Qunta\\Desktop\\PYTHON CODES\\Streamlit Projects\\UN Refugee\\Un Refugee.csv')
-
+file_path = r'C:\Users\Qunta\Desktop\PYTHON CODES\Streamlit Projects\UN Refugee\Un Refugee.csv'
+df = pd.read_csv(file_path)
 
 # Replace 'Unknown' with NaN
 df.replace('Unknown', np.nan, inplace=True)
@@ -14,12 +14,23 @@ df.replace('Unknown', np.nan, inplace=True)
 # Convert columns to numeric (ignoring non-numeric values)
 df_numeric = df.apply(pd.to_numeric, errors='coerce') 
 
-# Page title
+# Font Awesome setup
+st.markdown(
+    """
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    """,
+    unsafe_allow_html=True
+)
+
+# Page title with icon and logo
 st.markdown(
     """
     <div style="background-color:#f8f9fa;padding:10px;border-radius:10px;margin-bottom:20px">
-        <h1 style="color:#007bff;text-align:center;">UNHCR Dataset Analysis</h1>
-        <p style="font-size:18px;color:#6c757d;text-align:center;">Explore insights from the UNHCR dataset</p>
+        <img src="https://example.com/your-logo.png" alt="Logo" style="width: 100px; height: 100px; float: left; margin-right: 10px;">
+        <h1 style="color:#007bff;"><i class="fas fa-chart-bar"></i> UNHCR Dataset Analysis</h1>
+        <p style="font-size:18px;color:#6c757d;">Explore insights from the UNHCR dataset</p>
     </div>
     """,
     unsafe_allow_html=True
