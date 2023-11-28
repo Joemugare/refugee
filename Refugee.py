@@ -4,9 +4,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+# Set page configuration
+st.set_page_config(
+    page_title="UNHCR Refugee Dashboard",
+    page_icon="📊",  # You can use an emoji or provide a URL to a favicon.ico
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 # Load the dataset
-file_path = r'C:\Users\Qunta\Desktop\PYTHON CODES\Streamlit Projects\UN Refugee\Un Refugee.csv'
-df = pd.read_csv(file_path)
+df = pd.read_csv('UN Refugee.csv')
 
 # Replace 'Unknown' with NaN
 df.replace('Unknown', np.nan, inplace=True)
